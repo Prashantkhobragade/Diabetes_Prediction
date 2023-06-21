@@ -35,7 +35,7 @@ y = df['Outcome']   #Dependent Features
 
 
 
-@classmethod
+
 def get_data_transformer_object(cls)->Pipeline:
     
     robust_scaler = RobustScaler()
@@ -51,9 +51,26 @@ def get_data_transformer_object(cls)->Pipeline:
 
 X_mean = mean_pipeline.fit_transform(X)
 
+def data_transformer():
+    #Resampling the minority class
+    smt = SMOTETomek(random_state=42, sampling_strategy='minority',n_jobs=-1)
+    #fit the model to generate the data
+    X_res, y_res = smt.fit_resample(X_mean,y)
+    return X_res, y_res
 
-#Resampling the minority class
-smt = SMOTETomek(random_state=42, sampling_strategy='minority',n_jobs=-1)
-#fit the model to generate the data
-X_res, y_res = smt.fit_resample(X_mean,y)
+def train_test_split(X_res, y_res):
+    X_train, X_test, y_train, y_test = train_test_split(X_res,y_res,test_size=0.2,random_state=42)
+    return X_train, X_test, y_train, y_test
+
+
+#model 
+def train_model(X_train, y_train):
+    model = XGBClassifier()
+    model.fit(X_train, y_train)
+    return model
+
+
+#create Model pickle object
+filename = 'xgb_clf.pkl'
+pickle.dump(model, open(filename, 'wb'))
 
