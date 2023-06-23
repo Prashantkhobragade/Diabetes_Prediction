@@ -3,10 +3,14 @@ from flask import Flask
 from flask import Flask, render_template, request
 import pickle
 import numpy as np
+import joblib
 
 # Load the Random Forest CLassifier model
 filename = 'model/xgb_clf.pkl'
-classifier = pickle.load(open(filename, 'rb'))
+classifier = joblib.load(open(filename, 'rb'))
+
+filename = 'model/robust_scaler.pkl'
+scaler = joblib.load(open(filename, 'rb'))
 
 app = Flask(__name__)
 
@@ -27,7 +31,10 @@ def predict():
         age = int(request.form['age'])
         
         data = np.array([[preg, glucose, bp, st, insulin, bmi, dpf, age]])
-        my_prediction = classifier.predict(data)
+
+        transformed_data = scaler.transform(data)
+
+        my_prediction = classifier.predict(transformed_data)
         
         return render_template('result.html', prediction=my_prediction)
 
