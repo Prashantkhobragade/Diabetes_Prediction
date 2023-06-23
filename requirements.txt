@@ -1,6 +1,6 @@
-pandas==2.0
-numpy==1.20
-xgboost==1.7.6
-imbalanced-learn==0.10.1
+pandas
+numpy
+xgboost
+imbalanced-learn
 Flask
 gunicorn
