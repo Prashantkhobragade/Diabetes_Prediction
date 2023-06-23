@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+	<title>Diabetes Prediction</title>
+  <style>
+  
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 20px;
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 22px;
+    }
+
+		form {
+			max-width: 400px;
+			margin: 20px auto;
+			padding: 20px;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+
+		input[type="number"],
+		input[type="submit"] {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		input[type="submit"]:hover {
+			background-color: #45a049;
+		}
+
+    #banner {
+      width: 100%;
+      height: "250";
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <h1> Diabetes Prediction</h1>
+  <img class ="img-fluid" id="banner" src = "https://diabetesprediction.prashantkhobrag.repl.co/static/banner2.jpeg">
+  <h2> About Project </h2>
+  <p>
+    The data set that has been used in this project has 
+  been taken from the Kaggle. This dataset is originally 
+  from the "National Institute of Diabetes and Digestive 
+  and Kidney Diseases". The objective of the dataset is 
+  to diagnostically predict whether or not a patient has 
+  diabetes, based on certain diagnostic measurements 
+  included in the dataset. Several constraints were 
+  placed on the selection of these instances from a 
+  larger database. In particular, all patients here are 
+  females at least 21 years old of Pima Indian heritage.
+  </p>
+
+  <p>
+    <h5>
+      This is a POC(Proof of concept) kind-of project. The data used here comes up with no guarantee from the creator. So, don't use it for making any decisions. If you do so, the creator is not responsible for anything. However, this project presents the idea that how we can use ML/DL in Medical Science if developed at large scale and with authentic and verified data.
+    </h5>
+  </p>
+
+  <h1>Diabetes Prediction</h1>
+	<form action="/predict" method="post">
+		<label for="pregnancies">Number of Pregnancies:    
+   </label>
+		<input type="number" id="pregnancies" name="pregnancies" required placeholder="eg.: 2"><br>
+
+		<label for="glucose">Glucose Level:</label>
+		<input type="number" id="glucose" name="glucose" required placeholder="eg.: 125"><br>
+
+		<label for="bloodpressure">Blood Pressure (mm Hg):</label>
+		<input type="number" id="bloodpressure" name="bloodpressure" required placeholder="eg.: diastolic blood pressure 79"><br>
+
+		<label for="skinthickness">Skin Thickness (mm):</label>
+		<input type="number" id="skinthickness" name="skinthickness" required placeholder="eg.: 33"><br>
+
+		<label for="insulin">Insulin Level (mu U/ml):</label>
+		<input type="number" id="insulin" name="insulin" required placeholder="eg.: 98"><br>
+
+		<label for="bmi">BMI:</label>
+		<input type="number" id="bmi" name="bmi" step="0.01" required placeholder="eg.: 35"><br>
+
+		<label for="dpf">Diabetes Pedigree Function:</label>
+		<input type="number" id="dpf" name="dpf" step="0.01" required placeholder="eg.: 0.37"><br>
+
+		<label for="age">Age:</label>
+		<input type="number" id="age" name="age" required placeholder="eg.: 29"><br>
+
+		<input type="submit" value="Predict">
+	</form>
+
+</body>
+  
+</html>
