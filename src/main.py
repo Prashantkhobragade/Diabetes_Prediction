@@ -15,6 +15,7 @@ from sklearn.preprocessing import RobustScaler
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 from sklearn.model_selection import train_test_split
+import joblib
 
 
 
@@ -89,8 +90,14 @@ except Exception as e:
     raise CustomException(e,sys)
     
 
+#create Robust Scaler pickle object
+
+filename = 'robust_scaler.pkl'
+joblib.dump(robust_scaler,open(filename,'wb'))
+
 
 #create Model pickle object
 filename = 'xgb_clf.pkl'
-pickle.dump(model, open(filename, 'wb'))
+joblib.dump(model, open(filename, 'wb'))
+
 
