@@ -43,7 +43,7 @@ This is a POC(Proof of concept) kind-of project. The data used here comes up wit
 
 *  And finally run the project with
 
-         `python -m src.model.py`
+         `python -m src.main.py`
 
 ### Deployment
 
