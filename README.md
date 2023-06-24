@@ -49,6 +49,6 @@ This is a POC(Proof of concept) kind-of project. The data used here comes up wit
 
 This website is deployed at [render](render.com)
 
-You can access it [here](https://diabetes-prediction-wvme.onrender.com/)
+You can access it [here](https://diabetes-prediction-osmw.onrender.com/)
 
 **Note:** The website may take a minute to load sometimes, as the server may be in hibernate state
